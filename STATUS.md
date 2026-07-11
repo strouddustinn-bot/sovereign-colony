@@ -6,7 +6,11 @@
 
 ## Current standing
 
-The public repository is initialized and its founding specification is published. No runtime, autonomous execution, sandbox, or LLM citizens exist yet. This is deliberate: the constitution, contracts, threat model, schemas, and architecture decisions must constrain implementation first.
+Experiment 001 has entered genesis. The deterministic kernel, seven-founder genesis, hash-chained event ledger, seeded world exploration, energy accounting, permanent death, immutable-boundary denial, hidden Founder artifact, and intervention schedule are implemented. Day 0 evidence was generated inside a locked-down local Docker sandbox with no network and a read-only repository mount.
+
+The GitHub Wiki is enabled, and a ten-page artifact-garden seed bundle is committed under `wiki-seed/`. GitHub requires one authenticated UI save before it creates the separate `.wiki.git` repository; after that one-time initialization, the seed can be published without weakening artifact review.
+
+No LLM citizens or hourly autonomous turns are active yet. This is deliberate: Day 0 and deterministic mechanics must be proven before model-driven behavior begins.
 
 ## What exists
 
@@ -14,8 +18,13 @@ The public repository is initialized and its founding specification is published
 - Immutable/evolvable constitutional boundary
 - Kernel/world architecture
 - Typed citizen contract
-- Append-only event vocabulary
-- 100 Colony Days experiment protocol
+- Append-only, hash-chained in-memory event ledger
+- Deterministic seven-founder genesis and state digest
+- Seeded exploration, energy conservation, permanent death, and boundary denial
+- Hidden Founder artifact and Days 5/25/50/75 intervention schedule
+- Experiment 001 interview decisions and public artifact protocol
+- Verified Day 0 evidence bundle
+- Enabled GitHub Wiki with ten prepared seed pages
 - Staged roadmap
 - Security and contribution policies
 - MIT license

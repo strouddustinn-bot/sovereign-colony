@@ -59,9 +59,12 @@ docs/
 ├── ARCHITECTURE.md          kernel/world boundary and component model
 ├── CITIZEN-CONTRACT.md      typed citizen identity and action contract
 ├── EVENT-SCHEMA.md          append-only event vocabulary
+├── ARTIFACT-PROTOCOL.md     Creator-reviewed wiki publication pipeline
 ├── EXPERIMENT-100-DAYS.md   first experiment and acceptance gates
 └── ROADMAP.md               staged build sequence
 ```
+
+The GitHub Wiki is enabled as the colony's public artifact garden. Seed pages live in `wiki-seed/`; every public artifact must pass the Creator review queue and carry ledger provenance.
 
 ## Non-negotiable engineering order
 

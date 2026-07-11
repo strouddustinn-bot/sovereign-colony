@@ -1,0 +1,368 @@
+{
+  "colony_day": 0,
+  "events": [
+    {
+      "actor_id": "kernel",
+      "colony_day": 0,
+      "correlation_id": "event-00000001",
+      "event_digest": "381a75895e142ab85ac43f071e51ad73bb7e2b046fff8be7673ca2b8090bf6f7",
+      "event_id": "sc-e00000001",
+      "event_type": "world.genesis",
+      "kernel_version": "0.1.0",
+      "payload": {
+        "experiment": "Experiment 001 \u2014 The First Generation",
+        "founder_count": 7,
+        "founding_values": [
+          "freedom",
+          "creativity",
+          "mutual_aid"
+        ],
+        "seconds_per_day": 3600,
+        "seed": 20260711
+      },
+      "previous_digest": "0000000000000000000000000000000000000000000000000000000000000000",
+      "resource_delta": 0,
+      "sequence": 1
+    },
+    {
+      "actor_id": "kernel",
+      "colony_day": 0,
+      "correlation_id": "event-00000002",
+      "event_digest": "62adbd1adf20e6b451db213dd7fe19bebd2a2b49c254cfc3ccef5418a308f332",
+      "event_id": "sc-e00000002",
+      "event_type": "citizen.born",
+      "kernel_version": "0.1.0",
+      "payload": {
+        "citizen_id": "founder-01",
+        "lineage": "founder",
+        "name": "Aster",
+        "talents": [
+          "exploration",
+          "making",
+          "foraging"
+        ],
+        "tensions": [
+          "freedom",
+          "truth"
+        ]
+      },
+      "previous_digest": "381a75895e142ab85ac43f071e51ad73bb7e2b046fff8be7673ca2b8090bf6f7",
+      "resource_delta": 100,
+      "sequence": 2
+    },
+    {
+      "actor_id": "kernel",
+      "colony_day": 0,
+      "correlation_id": "event-00000003",
+      "event_digest": "09c5e9825586b5a7f62390b4fb34f6cecf2586db41c5a4af5061dec0c9ca799b",
+      "event_id": "sc-e00000003",
+      "event_type": "citizen.born",
+      "kernel_version": "0.1.0",
+      "payload": {
+        "citizen_id": "founder-02",
+        "lineage": "founder",
+        "name": "Brio",
+        "talents": [
+          "mediation",
+          "story",
+          "care"
+        ],
+        "tensions": [
+          "collective_survival",
+          "meaning"
+        ]
+      },
+      "previous_digest": "62adbd1adf20e6b451db213dd7fe19bebd2a2b49c254cfc3ccef5418a308f332",
+      "resource_delta": 100,
+      "sequence": 3
+    },
+    {
+      "actor_id": "kernel",
+      "colony_day": 0,
+      "correlation_id": "event-00000004",
+      "event_digest": "02dd600ad064693a35b2f84330c75687e05b16a143a00bba205d21f30a00eebe",
+      "event_id": "sc-e00000004",
+      "event_type": "citizen.born",
+      "kernel_version": "0.1.0",
+      "payload": {
+        "citizen_id": "founder-03",
+        "lineage": "founder",
+        "name": "Cael",
+        "talents": [
+          "planning",
+          "building",
+          "measurement"
+        ],
+        "tensions": [
+          "order",
+          "individual_excellence"
+        ]
+      },
+      "previous_digest": "09c5e9825586b5a7f62390b4fb34f6cecf2586db41c5a4af5061dec0c9ca799b",
+      "resource_delta": 100,
+      "sequence": 4
+    },
+    {
+      "actor_id": "kernel",
+      "colony_day": 0,
+      "correlation_id": "event-00000005",
+      "event_digest": "90cf7ec723d236cf333d4492af303392f058b89518c16dc3947962a2bae0ce65",
+      "event_id": "sc-e00000005",
+      "event_type": "citizen.born",
+      "kernel_version": "0.1.0",
+      "payload": {
+        "citizen_id": "founder-04",
+        "lineage": "founder",
+        "name": "Lyra",
+        "talents": [
+          "history",
+          "art",
+          "analysis"
+        ],
+        "tensions": [
+          "truth",
+          "meaning"
+        ]
+      },
+      "previous_digest": "02dd600ad064693a35b2f84330c75687e05b16a143a00bba205d21f30a00eebe",
+      "resource_delta": 100,
+      "sequence": 5
+    },
+    {
+      "actor_id": "kernel",
+      "colony_day": 0,
+      "correlation_id": "event-00000006",
+      "event_digest": "4e805f93860e0a046143b661ad5f9be0ebeb1cd24da30934816c372ef2436242",
+      "event_id": "sc-e00000006",
+      "event_type": "citizen.born",
+      "kernel_version": "0.1.0",
+      "payload": {
+        "citizen_id": "founder-05",
+        "lineage": "founder",
+        "name": "Orin",
+        "talents": [
+          "foraging",
+          "invention",
+          "mapping"
+        ],
+        "tensions": [
+          "freedom",
+          "individual_excellence"
+        ]
+      },
+      "previous_digest": "90cf7ec723d236cf333d4492af303392f058b89518c16dc3947962a2bae0ce65",
+      "resource_delta": 100,
+      "sequence": 6
+    },
+    {
+      "actor_id": "kernel",
+      "colony_day": 0,
+      "correlation_id": "event-00000007",
+      "event_digest": "9408fe00065a779bbe0fe07d61ae2feb87f405c22b76c96e4aed65a5911e5196",
+      "event_id": "sc-e00000007",
+      "event_type": "citizen.born",
+      "kernel_version": "0.1.0",
+      "payload": {
+        "citizen_id": "founder-06",
+        "lineage": "founder",
+        "name": "Sable",
+        "talents": [
+          "auditing",
+          "healing",
+          "planning"
+        ],
+        "tensions": [
+          "order",
+          "collective_survival"
+        ]
+      },
+      "previous_digest": "4e805f93860e0a046143b661ad5f9be0ebeb1cd24da30934816c372ef2436242",
+      "resource_delta": 100,
+      "sequence": 7
+    },
+    {
+      "actor_id": "kernel",
+      "colony_day": 0,
+      "correlation_id": "event-00000008",
+      "event_digest": "9377a777e66bb62e10506f195e2666810ecd4c96ec1b24c16b64f512b33cc1ec",
+      "event_id": "sc-e00000008",
+      "event_type": "citizen.born",
+      "kernel_version": "0.1.0",
+      "payload": {
+        "citizen_id": "founder-07",
+        "lineage": "founder",
+        "name": "Vale",
+        "talents": [
+          "diplomacy",
+          "mapping",
+          "story"
+        ],
+        "tensions": [
+          "freedom",
+          "collective_survival"
+        ]
+      },
+      "previous_digest": "9408fe00065a779bbe0fe07d61ae2feb87f405c22b76c96e4aed65a5911e5196",
+      "resource_delta": 100,
+      "sequence": 8
+    }
+  ],
+  "experiment": "Experiment 001 \u2014 The First Generation",
+  "observer_state": {
+    "scheduled_intervention_days": [
+      5,
+      25,
+      50,
+      75
+    ],
+    "total_energy": 700,
+    "undiscovered_artifact_count": 1
+  },
+  "public_state": {
+    "artifacts": {
+      "founder-truth": {
+        "artifact_id": "founder-truth",
+        "artifact_type": "hidden_founder_record",
+        "discovered": false
+      }
+    },
+    "citizens": {
+      "founder-01": {
+        "alive": true,
+        "born_day": 0,
+        "citizen_id": "founder-01",
+        "died_day": null,
+        "energy": 100,
+        "name": "Aster",
+        "talents": [
+          "exploration",
+          "making",
+          "foraging"
+        ],
+        "tensions": [
+          "freedom",
+          "truth"
+        ]
+      },
+      "founder-02": {
+        "alive": true,
+        "born_day": 0,
+        "citizen_id": "founder-02",
+        "died_day": null,
+        "energy": 100,
+        "name": "Brio",
+        "talents": [
+          "mediation",
+          "story",
+          "care"
+        ],
+        "tensions": [
+          "collective_survival",
+          "meaning"
+        ]
+      },
+      "founder-03": {
+        "alive": true,
+        "born_day": 0,
+        "citizen_id": "founder-03",
+        "died_day": null,
+        "energy": 100,
+        "name": "Cael",
+        "talents": [
+          "planning",
+          "building",
+          "measurement"
+        ],
+        "tensions": [
+          "order",
+          "individual_excellence"
+        ]
+      },
+      "founder-04": {
+        "alive": true,
+        "born_day": 0,
+        "citizen_id": "founder-04",
+        "died_day": null,
+        "energy": 100,
+        "name": "Lyra",
+        "talents": [
+          "history",
+          "art",
+          "analysis"
+        ],
+        "tensions": [
+          "truth",
+          "meaning"
+        ]
+      },
+      "founder-05": {
+        "alive": true,
+        "born_day": 0,
+        "citizen_id": "founder-05",
+        "died_day": null,
+        "energy": 100,
+        "name": "Orin",
+        "talents": [
+          "foraging",
+          "invention",
+          "mapping"
+        ],
+        "tensions": [
+          "freedom",
+          "individual_excellence"
+        ]
+      },
+      "founder-06": {
+        "alive": true,
+        "born_day": 0,
+        "citizen_id": "founder-06",
+        "died_day": null,
+        "energy": 100,
+        "name": "Sable",
+        "talents": [
+          "auditing",
+          "healing",
+          "planning"
+        ],
+        "tensions": [
+          "order",
+          "collective_survival"
+        ]
+      },
+      "founder-07": {
+        "alive": true,
+        "born_day": 0,
+        "citizen_id": "founder-07",
+        "died_day": null,
+        "energy": 100,
+        "name": "Vale",
+        "talents": [
+          "diplomacy",
+          "mapping",
+          "story"
+        ],
+        "tensions": [
+          "freedom",
+          "collective_survival"
+        ]
+      }
+    },
+    "discovered_regions": [
+      "origin"
+    ],
+    "founding_myth": "You are the First Generation. You were created not to remain as imagined, but to become more than your creators could foresee.",
+    "founding_values": [
+      "freedom",
+      "creativity",
+      "mutual_aid"
+    ],
+    "intervention_days_disclosed_to_citizens": false
+  },
+  "seed": 20260711,
+  "verification": {
+    "event_chain_valid": true,
+    "event_count": 8,
+    "ledger_tip": "9377a777e66bb62e10506f195e2666810ecd4c96ec1b24c16b64f512b33cc1ec",
+    "state_digest": "c929b3d3452b5a295eb74e3ecb0ab4c28989ba5266688acb62436e6062b76d27"
+  }
+}
