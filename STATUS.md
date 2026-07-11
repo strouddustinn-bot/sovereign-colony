@@ -1,16 +1,16 @@
 # Sovereign Colony — Project Status
 
 **Last updated:** 2026-07-11  
-**Lifecycle:** Phase 0 — Constitutional specification  
+**Lifecycle:** Phase 1 — Operational experiment
 **Repository:** https://github.com/strouddustinn-bot/sovereign-colony
 
 ## Current standing
 
-Experiment 001 has entered genesis. The deterministic kernel, seven-founder genesis, hash-chained event ledger, seeded world exploration, energy accounting, permanent death, immutable-boundary denial, hidden Founder artifact, and intervention schedule are implemented. Day 0 evidence was generated inside a locked-down local Docker sandbox with no network and a read-only repository mount.
+Experiment 001 is live at Colony Day 1. Seven local-model citizens completed one atomic mediated turn through `qwen2.5:1.5b`; the canonical SQLite ledger contains 26 verified hash-linked events. Day 1 produced the proposed ritual **The Wheel of Fate Ceremony**, the proposed norm **Unity Through Shared Goals**, one discovered region, and 23 discovered energy units, of which two were harvested.
+
+The one-day-per-hour clock is enabled as a hardened user-level systemd timer. Generated Python runs only inside a networkless, read-only Docker sandbox. Local Ollama runs outside the citizen boundary and returns inert JSON constrained by a machine-readable schema; all seven responses must validate before any day is committed. The kernel fails closed on missing, malformed, stale, symlinked, oversized, or semantically invalid responses.
 
 The GitHub Wiki is enabled, and a ten-page artifact-garden seed bundle is committed under `wiki-seed/`. GitHub requires one authenticated UI save before it creates the separate `.wiki.git` repository; after that one-time initialization, the seed can be published without weakening artifact review.
-
-No LLM citizens or hourly autonomous turns are active yet. This is deliberate: Day 0 and deterministic mechanics must be proven before model-driven behavior begins.
 
 ## What exists
 
@@ -18,12 +18,17 @@ No LLM citizens or hourly autonomous turns are active yet. This is deliberate: D
 - Immutable/evolvable constitutional boundary
 - Kernel/world architecture
 - Typed citizen contract
-- Append-only, hash-chained in-memory event ledger
-- Deterministic seven-founder genesis and state digest
-- Seeded exploration, energy conservation, permanent death, and boundary denial
+- Append-only, hash-chained SQLite event ledger and durable world snapshots
+- Atomic one-day turn engine with stale-state and divergent-history rejection
+- Strict `CitizenDecision/v1` parser and matching JSON Schema
+- Mediated local Ollama adapter with all-or-nothing seven-citizen batches
+- Seeded exploration, one-time resource discovery, harvesting, energy transfer, conservation, and permanent death
+- Cultural words, norms, rituals, messages, artifacts, and Creator review queue
+- Citizen-isolated private memory with content-free hash commitments in the public event ledger
+- Pause, resume, status, emergency-pause, and scheduled intervention controls
+- Networkless/read-only Docker execution boundary and hardened hourly systemd timer
 - Hidden Founder artifact and Days 5/25/50/75 intervention schedule
-- Experiment 001 interview decisions and public artifact protocol
-- Verified Day 0 evidence bundle
+- Verified Day 0 and Day 1 evidence bundles
 - Enabled GitHub Wiki with ten prepared seed pages
 - Staged roadmap
 - Security and contribution policies
@@ -32,16 +37,16 @@ No LLM citizens or hourly autonomous turns are active yet. This is deliberate: D
 
 ## Active work
 
-1. Threat-model the immutable kernel and world boundary.
-2. Define v1 JSON Schemas and contract fixtures.
-3. Record load-bearing architecture decisions.
-4. Write the Phase 1 deterministic-kernel TDD plan after items 1–3 are resolved.
+1. Complete the formal threat model against the now-running boundary.
+2. Add full event-only state replay as an independent check against snapshots.
+3. Connect a live observer console to reviewed, read-only state exports.
+4. Review pending cultural artifacts before any GitHub Wiki publication.
 
 ## Explicitly deferred
 
-- Autonomous code execution
-- LLM citizens
-- Host tool access
+- Citizen or model code execution
+- Direct model access to SQLite, Docker, host tools, credentials, or files
+- Citizen network access
 - Open internet access
 - Real-money economy
 - Self-expanding compute
@@ -49,11 +54,11 @@ No LLM citizens or hourly autonomous turns are active yet. This is deliberate: D
 
 ## One next action
 
-Complete GitHub issue #1: `Phase 0: threat-model the immutable kernel and world boundary`.
+Complete GitHub issue #1: `Phase 0: threat-model the immutable kernel and world boundary` against the operational Day 1 implementation.
 
-## Definition of done for Phase 0
+## Definition of done for Phase 1 hardening
 
-- Threat model merged.
-- Versioned machine-readable schemas and fixtures merged.
-- Kernel architecture decisions recorded.
-- Phase 1 implementation plan makes every invariant test-first and executable without design guesswork.
+- Operational threat model merged.
+- Event-only replay independently reproduces snapshot state digests.
+- Observer export is read-only, redacted, and provenance-linked.
+- Backup/restore drill proves the SQLite ledger and runtime controls recover cleanly.

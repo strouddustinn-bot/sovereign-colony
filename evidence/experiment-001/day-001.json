@@ -1,0 +1,78 @@
+{
+  "citizens": {
+    "founder-01": {
+      "alive": true,
+      "energy": 98,
+      "name": "Aster"
+    },
+    "founder-02": {
+      "alive": true,
+      "energy": 98,
+      "name": "Brio"
+    },
+    "founder-03": {
+      "alive": true,
+      "energy": 100,
+      "name": "Cael"
+    },
+    "founder-04": {
+      "alive": true,
+      "energy": 89,
+      "name": "Lyra"
+    },
+    "founder-05": {
+      "alive": true,
+      "energy": 101,
+      "name": "Orin"
+    },
+    "founder-06": {
+      "alive": true,
+      "energy": 90,
+      "name": "Sable"
+    },
+    "founder-07": {
+      "alive": true,
+      "energy": 101,
+      "name": "Vale"
+    }
+  },
+  "culture": {
+    "artifacts": {},
+    "messages": [],
+    "norms": {
+      "unity-through-shared-goals": {
+        "author": "founder-02",
+        "day": 1,
+        "status": "proposed",
+        "text": "In Sovereign Colony, we believe that the strength of our community lies in our ability to work together towards common goals. By uniting as one, we can overcome any challenge and achieve more than we could alone.",
+        "title": "Unity Through Shared Goals"
+      }
+    },
+    "rituals": {
+      "the-wheel-of-fate-ceremony": {
+        "author": "founder-01",
+        "day": 1,
+        "description": "A ritual involving spinning a large wheel to symbolize the cycle of life, birth, growth, decay, and rebirth, reflecting the colony's journey through time. The ceremony will include speeches about the importance of freedom and mutual aid.",
+        "status": "proposed",
+        "title": "The Wheel of Fate Ceremony"
+      }
+    },
+    "words": {}
+  },
+  "event_chain_valid": true,
+  "event_count": 26,
+  "known_regions": [
+    "origin",
+    "origin/north"
+  ],
+  "report": {
+    "colony_day": 1,
+    "decisions_applied": 7,
+    "ledger_tip": "17b913c404e7d3a0369aa566a339703d1e42402b85a5e42635d68431a9ac8512",
+    "living_citizens": 7,
+    "scheduled_intervention": null,
+    "state_digest": "fa562f632b1e08a8b9593e5c2fa7e431c391521630912774c79c2b4cc3c327b7"
+  },
+  "review_queue": [],
+  "world_energy": 21
+}

@@ -50,6 +50,14 @@ class GenesisTests(unittest.TestCase):
         self.assertEqual(1, bundle["observer_state"]["undiscovered_artifact_count"])
         self.assertNotIn("region_id", bundle["public_state"]["artifacts"]["founder-truth"])
 
+    def test_runtime_extensions_preserve_the_published_day_zero_digest(self):
+        world = build_experiment_001(seed=20260711)
+
+        self.assertEqual(
+            "c929b3d3452b5a295eb74e3ecb0ab4c28989ba5266688acb62436e6062b76d27",
+            world.state_digest(),
+        )
+
 
 class WorldActionTests(unittest.TestCase):
     def test_exploration_is_seeded_replayable_and_energy_conserving(self):
@@ -77,6 +85,34 @@ class WorldActionTests(unittest.TestCase):
         self.assertFalse(citizen.alive)
         with self.assertRaises(ConstitutionalViolation):
             world.explore(citizen.citizen_id, direction="east")
+
+    def test_repeated_exploration_cannot_mint_the_same_region_energy_twice(self):
+        world = build_experiment_001(seed=1001)
+
+        first = world.explore("founder-01", direction="north")
+        second = world.explore("founder-02", direction="north")
+
+        self.assertGreater(first.energy_discovered, 0)
+        self.assertEqual(0, second.energy_discovered)
+        self.assertEqual(
+            world.config.initial_total_energy + first.energy_discovered,
+            world.total_accounted_energy(),
+        )
+
+    def test_harvest_and_transfer_move_energy_without_creating_it(self):
+        world = build_experiment_001(seed=1001)
+        discovery = world.explore("founder-01", direction="north")
+        accounted = world.total_accounted_energy()
+
+        harvested = world.harvest("founder-02", amount=5)
+        transferred = world.transfer_energy(
+            "founder-02", target_citizen_id="founder-03", amount=3
+        )
+
+        self.assertEqual(5, harvested)
+        self.assertEqual(3, transferred)
+        self.assertEqual(discovery.energy_discovered - 5, world.world_energy)
+        self.assertEqual(accounted, world.total_accounted_energy())
 
     def test_intervention_schedule_matches_creator_decisions(self):
         config = ExperimentConfig.experiment_001()

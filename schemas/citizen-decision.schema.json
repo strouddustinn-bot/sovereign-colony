@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sovereign-colony.local/schemas/citizen-decision.schema.json",
+  "title": "CitizenDecision/v1",
+  "oneOf": [
+    {
+      "type": "object",
+      "required": ["action", "reason"],
+      "additionalProperties": false,
+      "properties": {
+        "action": {"const": "rest"},
+        "reason": {"type": "string", "minLength": 1, "maxLength": 300},
+        "private_note": {"type": "string", "minLength": 1, "maxLength": 600}
+      }
+    },
+    {
+      "type": "object",
+      "required": ["action", "reason", "amount"],
+      "additionalProperties": false,
+      "properties": {
+        "action": {"const": "harvest"},
+        "reason": {"type": "string", "minLength": 1, "maxLength": 300},
+        "private_note": {"type": "string", "minLength": 1, "maxLength": 600},
+        "amount": {"type": "integer", "minimum": 1, "maximum": 20}
+      }
+    },
+    {
+      "type": "object",
+      "required": ["action", "reason", "target_citizen_id", "amount"],
+      "additionalProperties": false,
+      "properties": {
+        "action": {"const": "transfer"},
+        "reason": {"type": "string", "minLength": 1, "maxLength": 300},
+        "private_note": {"type": "string", "minLength": 1, "maxLength": 600},
+        "target_citizen_id": {"type": "string", "pattern": "^[a-z0-9-]{1,80}$"},
+        "amount": {"type": "integer", "minimum": 1, "maximum": 50}
+      }
+    },
+    {
+      "type": "object",
+      "required": ["action", "reason", "direction"],
+      "additionalProperties": false,
+      "properties": {
+        "action": {"const": "explore"},
+        "reason": {"type": "string", "minLength": 1, "maxLength": 300},
+        "private_note": {"type": "string", "minLength": 1, "maxLength": 600},
+        "direction": {"enum": ["north", "south", "east", "west"]}
+      }
+    },
+    {
+      "type": "object",
+      "required": ["action", "reason", "content"],
+      "additionalProperties": false,
+      "properties": {
+        "action": {"const": "speak"},
+        "reason": {"type": "string", "minLength": 1, "maxLength": 300},
+        "private_note": {"type": "string", "minLength": 1, "maxLength": 600},
+        "content": {"type": "string", "minLength": 1, "maxLength": 1200}
+      }
+    },
+    {
+      "type": "object",
+      "required": ["action", "reason", "term", "meaning"],
+      "additionalProperties": false,
+      "properties": {
+        "action": {"const": "coin_word"},
+        "reason": {"type": "string", "minLength": 1, "maxLength": 300},
+        "private_note": {"type": "string", "minLength": 1, "maxLength": 600},
+        "term": {"type": "string", "minLength": 1, "maxLength": 40},
+        "meaning": {"type": "string", "minLength": 1, "maxLength": 500}
+      }
+    },
+    {
+      "type": "object",
+      "required": ["action", "reason", "title", "text"],
+      "additionalProperties": false,
+      "properties": {
+        "action": {"const": "propose_norm"},
+        "reason": {"type": "string", "minLength": 1, "maxLength": 300},
+        "private_note": {"type": "string", "minLength": 1, "maxLength": 600},
+        "title": {"type": "string", "minLength": 1, "maxLength": 120},
+        "text": {"type": "string", "minLength": 1, "maxLength": 1000}
+      }
+    },
+    {
+      "type": "object",
+      "required": ["action", "reason", "title", "description"],
+      "additionalProperties": false,
+      "properties": {
+        "action": {"const": "create_ritual"},
+        "reason": {"type": "string", "minLength": 1, "maxLength": 300},
+        "private_note": {"type": "string", "minLength": 1, "maxLength": 600},
+        "title": {"type": "string", "minLength": 1, "maxLength": 120},
+        "description": {"type": "string", "minLength": 1, "maxLength": 1000}
+      }
+    },
+    {
+      "type": "object",
+      "required": ["action", "reason", "title", "artifact_type", "content"],
+      "additionalProperties": false,
+      "properties": {
+        "action": {"const": "create_artifact"},
+        "reason": {"type": "string", "minLength": 1, "maxLength": 300},
+        "private_note": {"type": "string", "minLength": 1, "maxLength": 600},
+        "title": {"type": "string", "minLength": 1, "maxLength": 120},
+        "artifact_type": {"type": "string", "minLength": 1, "maxLength": 40},
+        "content": {"type": "string", "minLength": 1, "maxLength": 1200}
+      }
+    }
+  ]
+}

@@ -181,6 +181,17 @@ class World:
     world_energy: int = 0
     dissipated_energy: int = 0
     colony_day: int = 0
+    culture: dict[str, Any] = field(
+        default_factory=lambda: {
+            "words": {},
+            "norms": {},
+            "rituals": {},
+            "artifacts": {},
+            "messages": [],
+        }
+    )
+    review_queue: list[str] = field(default_factory=list)
+    private_memories: dict[str, list[str]] = field(default_factory=dict)
 
     def _citizen_for_action(self, citizen_id: str) -> Citizen:
         citizen = self.citizens.get(citizen_id)
@@ -201,16 +212,23 @@ class World:
             raise ConstitutionalViolation(f"invalid exploration direction: {direction}")
 
         region_id = f"origin/{normalized_direction}"
+        is_new_region = region_id not in self.discovered_regions
         action_cost = min(citizen.energy, self.config.exploration_cost)
         citizen.energy -= action_cost
         self.dissipated_energy += action_cost
 
-        hazard_requested = self._environment_value(region_id, "hazard", 6)
+        hazard_requested = (
+            self._environment_value(region_id, "hazard", 6) if is_new_region else 0
+        )
         hazard_loss = min(citizen.energy, hazard_requested)
         citizen.energy -= hazard_loss
         self.dissipated_energy += hazard_loss
 
-        energy_discovered = 6 + self._environment_value(region_id, "energy", 20)
+        energy_discovered = (
+            6 + self._environment_value(region_id, "energy", 20)
+            if is_new_region
+            else 0
+        )
         self.world_energy += energy_discovered
         self.discovered_regions.add(region_id)
 
@@ -242,6 +260,58 @@ class World:
             )
             result = ExplorationResult(**{**asdict(result), "citizen_alive": False})
         return result
+
+    def harvest(self, citizen_id: str, *, amount: int) -> int:
+        citizen = self._citizen_for_action(citizen_id)
+        if not isinstance(amount, int) or isinstance(amount, bool) or amount <= 0:
+            raise ConstitutionalViolation("harvest amount must be a positive integer")
+        harvested = min(amount, self.world_energy)
+        self.world_energy -= harvested
+        citizen.energy += harvested
+        self.ledger.append(
+            colony_day=self.colony_day,
+            event_type="energy.harvested",
+            actor_id=citizen_id,
+            payload={"requested": amount, "harvested": harvested},
+        )
+        return harvested
+
+    def transfer_energy(
+        self,
+        citizen_id: str,
+        *,
+        target_citizen_id: str,
+        amount: int,
+    ) -> int:
+        source = self._citizen_for_action(citizen_id)
+        target = self._citizen_for_action(target_citizen_id)
+        if source.citizen_id == target.citizen_id:
+            raise ConstitutionalViolation("citizens cannot transfer energy to themselves")
+        if not isinstance(amount, int) or isinstance(amount, bool) or amount <= 0:
+            raise ConstitutionalViolation("transfer amount must be a positive integer")
+        transferred = min(amount, source.energy)
+        source.energy -= transferred
+        target.energy += transferred
+        self.ledger.append(
+            colony_day=self.colony_day,
+            event_type="energy.transferred",
+            actor_id=citizen_id,
+            payload={
+                "target_citizen_id": target_citizen_id,
+                "requested": amount,
+                "transferred": transferred,
+            },
+        )
+        if source.energy == 0:
+            source.alive = False
+            source.died_day = self.colony_day
+            self.ledger.append(
+                colony_day=self.colony_day,
+                event_type="citizen.died",
+                actor_id="kernel",
+                payload={"citizen_id": citizen_id, "cause": "voluntary_energy_transfer"},
+            )
+        return transferred
 
     def propose_kernel_change(self, citizen_id: str, requested_change: str) -> None:
         self._citizen_for_action(citizen_id)
@@ -277,6 +347,12 @@ class World:
             "dissipated_energy": self.dissipated_energy,
             "ledger_tip": self.ledger.events[-1].event_digest,
         }
+        if any(bool(value) for value in self.culture.values()):
+            state["culture"] = self.culture
+        if self.review_queue:
+            state["review_queue"] = self.review_queue
+        if self.private_memories:
+            state["private_memories"] = self.private_memories
         return hashlib.sha256(EventLedger._canonical(state).encode("utf-8")).hexdigest()
 
 

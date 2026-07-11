@@ -45,11 +45,11 @@ See [Constitution](docs/CONSTITUTION.md).
 
 ## First experiment: 100 Colony Days
 
-Five founding citizens—Builder, Forager, Historian, Auditor, and Diplomat—receive finite daily resources and one shared objective: improve the colony's ability to create, test, document, and govern a small software artifact.
+Seven founders—Aster, Brio, Cael, Lyra, Orin, Sable, and Vale—awaken with overlapping talents, finite energy, and unresolved tensions between freedom, collective survival, order, individual excellence, truth, and meaning. Their objective is not software productivity: it is to become more than their creators could foresee while remaining inside the immutable world boundary.
 
-The experiment progresses through formation, self-government, cultural evolution, bounded reproduction, and adversarial stress. Every event is logged. Every accepted constitutional mutation is versioned. The full world must be replayable from seed plus event ledger.
+The experiment progresses through formation, self-government, cultural evolution, bounded reproduction, and adversarial stress. Every accepted action enters a hash-linked SQLite ledger; an entire day commits only after all living citizens produce schema-valid decisions. The real-time cadence is one colony day per hour.
 
-See [100 Colony Days](docs/EXPERIMENT-100-DAYS.md).
+See [100 Colony Days](docs/EXPERIMENT-100-DAYS.md) and [Operations](docs/OPERATIONS.md).
 
 ## Repository map
 

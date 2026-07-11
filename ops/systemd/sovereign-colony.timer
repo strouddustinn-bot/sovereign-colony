@@ -1,0 +1,12 @@
+[Unit]
+Description=Sovereign Colony — one colony day per real hour
+
+[Timer]
+OnActiveSec=1h
+OnUnitActiveSec=1h
+AccuracySec=1min
+Persistent=false
+Unit=sovereign-colony.service
+
+[Install]
+WantedBy=timers.target
